@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel consumption</title>
+
+    <!-- js links -->
+    <script src="./app.js" defer></script>
+    
+    <!-- css link -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- axios cdn -->
+    
+    <!-- handlebars cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <!-- template -->
+    <script type="text/x-template" class="template" defer>
+        {{#each this}}
+            <div class="vehiclesCard">
+                <h2>{{description}}</h2>
+                <span>{{reg_number}}</span>
+                <a href="refuel.html/vehicle/{{id}}">Refuel</a>
+            </div>
+            {{/each}}
+    </script>
+
+</head>
+<body>
+        <div class="container">
+            <h1>Vehicles</h1>
+            
+            <!-- create a vehicles container -->
+            <div class="vehicles"></div>
+        </div>
+    </body>
+    
+    <script type="module" src="./client.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</html>
