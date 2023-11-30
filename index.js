@@ -4,6 +4,9 @@ import express from 'express';
 import FuelConsumption from './services/fuel-consumption.js';
 import FuelConsumptionAPI from './api/fuel-consumption-api.js';
 
+// Cors import
+import cors from "cors";
+
 const pgp = pgPromise();
 
 const connectionOptions = {
@@ -17,6 +20,13 @@ const fuelConsumption = FuelConsumption(db);
 const fuelConsumptionAPI = FuelConsumptionAPI(fuelConsumption)
 
 const app = express();
+
+// Cors middleware
+app.use(cors({
+    origin: "*"
+}));
+
+
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
