@@ -1,8 +1,8 @@
 import pgPromise from 'pg-promise';
 import express from 'express';
 
-import FuelConsumption from './fuel-consumption.js';
-import FuelConsumptionAPI from './fuel-consumption-api.js';
+import FuelConsumption from './services/fuel-consumption.js';
+import FuelConsumptionAPI from './api/fuel-consumption-api.js';
 
 const pgp = pgPromise();
 
