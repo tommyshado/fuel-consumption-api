@@ -9,32 +9,41 @@
         <!-- css link -->
         <link rel="stylesheet" href="./style.css">
 
+        <script src="https://cdn.tailwindcss.com"></script>
+
+
     </head>
     <body>
-        <div>
-            <h1>Add a vehicle</h1>
+        <div class="flex justify-center py-20" style="margin-left: 2rem">
+            
+            <div class="addVehicleContainer">
+                <h1 class="text-2xl">Add a vehicle</h1>
+    
+                <!-- messages -->
+                <div class="message"></div>
 
-            <!-- messages -->
-            <div class="message"></div>
-
-            <div class="description">
-                <label for="description">description</label>
-                <div>
-                    <input type="text" id="description" name="description" placeholder="Enter a vehicle description">
+                <div class="description">
+                    <label for="description">description</label>
+                    <div>
+                        <input type="text" id="description" name="description" placeholder="Enter a vehicle description">
+                    </div>
                 </div>
-            </div>
-
-            <div class="regNumber">
-                <label for="regNumber">Registration number</label>
-                <div>
-                    <input type="text" id="registrationNumber" name="regNumber" placeholder="Enter a registration number">
+    
+                <div class="regNumber">
+                    <label for="regNumber">Registration number</label>
+                    <div>
+                        <input type="text" id="registrationNumber" name="regNumber" placeholder="Enter a registration number">
+                    </div>
                 </div>
-            </div>
-
-            <div>
-                <button class="addVehicle" type="button">Add</button>
+    
+                <div>
+                    <button class="addVehicle bg-[#F4A261] text-2xl px-4 font-bold" type="button">Add</button>
+                </div>
+    
+                <a href="vehicles.html" class="text-[#E76F51] text-xl font-bold">Back to home</a>
             </div>
         </div>
+
     </body>
 
     <!-- js scripts -->

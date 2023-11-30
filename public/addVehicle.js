@@ -21,13 +21,18 @@ const setTimeoutFunc = () => {
 // Events
 addBtn.addEventListener("click", () => {
 
+    // Grab url endpoint
     const url  = "http://localhost:3000/api/vehicle";
+
+    // Send description, regNumber into the API
     const response = axios.post(url, {
         description: description.value,
         regNumber: registration_number.value
     });
 
+    // Returns a promise
     response.then(results => {
+        // Get the results
         if (results.data.status === "success") {
 
             // Set the input areas to empty
@@ -41,11 +46,11 @@ addBtn.addEventListener("click", () => {
             setTimeoutFunc();
             return;
         };
+
+        message.innerHTML = "Vehicle not added successfully.";
+        message.classList.add("danger-text");
+    
+        setTimeoutFunc();
     })
-
-    message.innerHTML = "Vehicle not added successfully.";
-    message.classList.add("danger-text");
-
-    setTimeoutFunc();
 
 });

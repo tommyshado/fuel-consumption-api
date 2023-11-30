@@ -7,6 +7,7 @@ body {
     font-family: 'Sarabun', sans-serif;
     font-size: 1rem;
     font-weight: 400;
+    color: black;
 }
 
 .vehiclesCard {
@@ -14,9 +15,9 @@ body {
 }
 
 .success-text {
-    color: #386641;
+    color: #06A77D;
 }
 
 .danger-text {
-    color: #931621;
+    color: #EC0B43;
 }

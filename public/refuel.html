@@ -1,13 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicle refuel</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vehicle refuel</title>
 
+        <link rel="stylesheet" href="./style.css">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+    </head>
+    <body>
+
+        
+        <div class="flex justify-center py-20" style="margin-left: 2rem">
+            
+            <div class="refuelContainer">
+
+                <h1 class="text-2xl">Refuel vehicle</h1>
+                <!-- messages -->
+                <div class="message"></div>
+
+                <div class="liters">
+                    <label for="liters">Liters</label>
+                    <div>
+                        <input type="number" id="liters" name="liters" placeholder="Enter liters">
+                    </div>
+                </div>
+            
+                <div class="amount">
+                    <label for="regNumber">Enter an amount</label>
+                    <div>
+                        <input type="number" id="amount" name="amount" placeholder="Enter an amount">
+                    </div>
+                </div>
+            
+                <div class="amount">
+                    <label for="distance">Distance</label>
+                    <div>
+                        <input type="number" id="distance" name="distance" placeholder="Enter distance">
+                    </div>
+                </div>
     
+                <div class="filledUp">
+                    <label for="filledUp">filledUp</label>
+                    <div>
+                        <select name="filledUp" id="filledUp">
+                            <option>Select true or false</option>
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+                    </div>
+                </div>
     
-</body>
+                <button type="button" class="refuelBtn text-2xl px-4 font-bold bg-[#F4A261]">Refuel vehicle</button>
+
+                <div>
+                    <a href="vehicles.html" class="text-[#E76F51] text-xl" style="margin-left: 2rem">Back to home</a>
+                </div>
+            </div>
+        </div>
+
+        
+    </body>
+
+    <script src="./refuel.js"></script>
 </html>
