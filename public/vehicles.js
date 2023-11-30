@@ -1,10 +1,7 @@
-
 // Template source
 const templateSource = document.querySelector(".template").innerHTML;
 let vehicles = document.querySelector(".vehicles");
 const template = Handlebars.compile(templateSource);
-
-
 
 // Functionality to display vehicles
 const vehiclesURL = () => {
@@ -19,5 +16,3 @@ const displayVehicles = () => {
 };
 
 displayVehicles();
-
-// Functionality to add a vehicle in vehicles.html

@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create vehicle</title>
-</head>
-<body>
-    <div>
-        <h1>Add a vehicle</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create vehicle</title>
 
-        <div class="description">
-            <label for="description">description</label>
+        
+        <!-- css link -->
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+    <body>
+        <div>
+            <h1>Add a vehicle</h1>
+
+            <!-- messages -->
+            <div class="message"></div>
+
+            <div class="description">
+                <label for="description">description</label>
+                <div>
+                    <input type="text" id="description" name="description" placeholder="Enter a vehicle description">
+                </div>
+            </div>
+
+            <div class="regNumber">
+                <label for="regNumber">Registration number</label>
+                <div>
+                    <input type="text" id="registrationNumber" name="regNumber" placeholder="Enter a registration number">
+                </div>
+            </div>
+
             <div>
-                <input type="text" name="description" placeholder="Enter a vehicle description">
+                <button class="addVehicle" type="button">Add</button>
             </div>
         </div>
+    </body>
 
-        <div class="regNumber">
-            <label for="regNumber">Registration number</label>
-            <div>
-                <input type="text" name="regNumber" placeholder="Enter a registration number">
-            </div>
-        </div>
-    </div>
-</body>
+    <!-- js scripts -->
+    <script type="module" src="./addVehicle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </html>
