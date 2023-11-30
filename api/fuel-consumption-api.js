@@ -32,10 +32,10 @@ export default function FuelConsumptionAPI(fuelConsumption) {
 
     async function refuel(req, res) {
         
-        const { vehicleId, liters, amount, distance, filledUp } = req.body;
+        const { liters, amount, distance, filledUp } = req.body;
 
         // Placed the vehicle id in the URL
-        // const {  } = req.params;
+        const { vehicleId } = req.params;
         
         const status = await fuelConsumption.refuel(vehicleId, liters, amount, distance, filledUp)
         res.json(status);

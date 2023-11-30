@@ -5,11 +5,20 @@ const liters = document.getElementById("liters");
 const amount = document.getElementById("amount");
 const distance = document.getElementById("distance");
 
+const msg = document.querySelector(".message");
+
 // button reference
 const refuelBtn = document.querySelector(".refuelBtn");
 
+// Set timeout function
+const setTimeoutFunc = () => {
+    return setTimeout(() => {
+        message.innerHTML = "";
+    }, 3000);
+};
+
 // Event
-refuelBtn.addEventListener("click", () => {
+refuelBtn.addEventListener("submit", () => {
 
     // Store fuel values
     const refuel = {
@@ -26,5 +35,18 @@ refuelBtn.addEventListener("click", () => {
 
     refuelVehicle().then(results => {
         const response = results.data;
+
+        if (response.data.status === "success") {
+            msg.innerHTML = "Refueled a vehicle.";
+            msg.classList.add("success-text");
+
+            setTimeoutFunc();
+        };
+
+        msg.innerHTML = "Refueled not successfully.";
+        msg.classList.add("danger-text");
+
+        setTimeoutFunc();
+
     });
 });
