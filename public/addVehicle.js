@@ -22,7 +22,7 @@ const setTimeoutFunc = () => {
 addBtn.addEventListener("click", () => {
 
     // Grab url endpoint
-    const url  = "http://localhost:3000/api/vehicle";
+    const url  = "https://fuel-consumption-7s2l.onrender.com/api/vehicle";
 
     // Send description, regNumber into the API
     const response = axios.post(url, {

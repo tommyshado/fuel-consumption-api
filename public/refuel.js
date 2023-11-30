@@ -29,7 +29,7 @@ refuelBtn.addEventListener("submit", () => {
     };
 
     const refuelVehicle = () => {
-        const url = "http://localhost:3000/api/refuel";
+        const url = "https://fuel-consumption-7s2l.onrender.com/api/refuel";
         return axios.post(url, refuel);
     };
 
