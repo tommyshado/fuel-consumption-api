@@ -1,5 +1,8 @@
 # Fuel consumption API
 
+## badge
+[![Node.js CI](https://github.com/tommyshado/fuel-consumption-api/actions/workflows/node.js.yml/badge.svg)](https://github.com/tommyshado/fuel-consumption-api/actions/workflows/node.js.yml)
+
 The fuel consumption API keeps track of vehicle fuel usage.
 
 For each vehicle refuel it stores: 
