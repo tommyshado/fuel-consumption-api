@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fuel consumption</title>
-
-    <!-- js links -->
-    <script src="./app.js" defer></script>
     
     <!-- css link -->
     <link rel="stylesheet" href="./style.css">
@@ -14,13 +11,15 @@
     <!-- handlebars cdn -->
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- template -->
     <script type="text/x-template" class="template" defer>
         {{#each this}}
-            <div class="vehiclesCard">
+            <div class="vehiclesCard text-left p-4">
                 <h2>{{description}}</h2>
                 <span>{{reg_number}}</span>
-                <a href="refuel.html/vehicle/{{id}}">Refuel</a>
+                <a href="./refuel.html/vehicle/{{id}}">Refuel page</a>
             </div>
             {{/each}}
     </script>
@@ -28,10 +27,10 @@
 </head>
     <body>
         <div class="container">
-            <h1>Vehicles</h1>
+            <h1 class="text-6xl py-2" style="margin-left: 2rem">Vehicles</h1>
             
             <!-- create a vehicles container -->
-            <div class="vehicles"></div>
+            <div class="vehicles grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-10 m-4" style="margin-left: 2rem"></div>
         </div>
     </body>
     

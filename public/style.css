@@ -1,3 +1,17 @@
+body {
+    background-color: #00171F;
+    color: #F2E8CF;
+    font-family: 'Lugrasimo', cursive;
+    font-family: 'Mukta', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 1rem;
+}
+
+.vehiclesCard {
+    border: 2px solid white;
+}
+
 .success-text {
     color: #386641;
 }
