@@ -3,10 +3,10 @@ import pgPromise from 'pg-promise';
 import assert from 'assert';
 
 const pgp = pgPromise();
-const DATABASE_URL=  "postgresql://fuel:fuel@localhost:5432/fuel_consumption";
+const DB_URL =  process.env.DB_TEST || "postgres://loazhmux:XnzQXa-ioPEIWSCNkrCdySIOujqtKiXS@snuffleupagus.db.elephantsql.com/loazhmux";
 
 const config = { 
-	connectionString : DATABASE_URL
+	connectionString : DB_URL
 }
 
 if (process.env.NODE_ENV == 'production') {
@@ -20,7 +20,7 @@ const db = pgp(config);
 describe("The FuelConsumption API", function () {
 
     // set the test time out if needed
-    this.timeout(3000); 
+    this.timeout(10000); 
 
     this.beforeEach(async function(){
         await db.none(`delete from fuel_entries`);
@@ -32,17 +32,17 @@ describe("The FuelConsumption API", function () {
         const fuelConsumption = FuelConsumption(db);
 
         let vehicles = await fuelConsumption.vehicles();
-        await assert.equal(0, vehicles.length);
+        assert.equal(0, vehicles.length);
 
         const result = await fuelConsumption.addVehicle({
             regNumber : "CY 125-980",
             description : "Grey Toyota Etios"
         });
 
-        assert.equal("success", result.status)
+        assert.equal("success", result.status);
 
         vehicles = await fuelConsumption.vehicles();
-        await assert.equal(1, vehicles.length);
+        assert.equal(1, vehicles.length);
         
     });
 
@@ -50,7 +50,7 @@ describe("The FuelConsumption API", function () {
         const fuelConsumption = FuelConsumption(db);
 
         let vehicles = await fuelConsumption.vehicles();
-        await assert.equal(0, vehicles.length);
+        assert.equal(0, vehicles.length);
 
         const result = await fuelConsumption.addVehicle({
             // regNumber : "CY 125-90",
@@ -61,14 +61,14 @@ describe("The FuelConsumption API", function () {
         assert.equal("regNumber should not be blank", result.message)
 
         vehicles = await fuelConsumption.vehicles();
-        await assert.equal(0, vehicles.length);
+        assert.equal(0, vehicles.length);
     });
 
     it("should be returning a error if invalid reg number given when adding a vehicle Vehicle", async function() {
         const fuelConsumption = FuelConsumption(db);
 
         let vehicles = await fuelConsumption.vehicles();
-        await assert.equal(0, vehicles.length);
+        assert.equal(0, vehicles.length);
 
         const result = await fuelConsumption.addVehicle({
             regNumber : "CY 12-90",
@@ -80,7 +80,7 @@ describe("The FuelConsumption API", function () {
             result.message)
 
         vehicles = await fuelConsumption.vehicles();
-        await assert.equal(0, vehicles.length);
+        assert.equal(0, vehicles.length);
     });
 
     it("should be able to return a list of vehicles", async function() {
@@ -88,7 +88,7 @@ describe("The FuelConsumption API", function () {
         const fuelConsumption = FuelConsumption(db);
 
         let vehicles = await fuelConsumption.vehicles();
-        await assert.equal(0, vehicles.length);
+        assert.equal(0, vehicles.length);
 
         await fuelConsumption.addVehicle({
             regNumber : "CY 125-905",
@@ -106,7 +106,7 @@ describe("The FuelConsumption API", function () {
         });
 
         vehicles = await fuelConsumption.vehicles();
-        await assert.equal(3, vehicles.length);
+        assert.equal(3, vehicles.length);
 
     });
 
@@ -125,6 +125,7 @@ describe("The FuelConsumption API", function () {
         await fuelConsumption.refuel(vehicleId, 21, 493.5, 45690, true);
 
         const vehicle = await fuelConsumption.vehicle(vehicleId);
+
         assert.equal(1053.5, vehicle.total_amount)
         assert.equal(44, vehicle.total_liters)
         

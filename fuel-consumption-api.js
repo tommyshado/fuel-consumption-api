@@ -22,7 +22,7 @@ export default function FuelConsumptionAPI(fuelConsumption) {
 
     async function vehicle(req, res) {
 
-        const {id} = req.query;
+        const {id} = req.params;
 
         const vehicle = await fuelConsumption.vehicle(id)
         res.json({
